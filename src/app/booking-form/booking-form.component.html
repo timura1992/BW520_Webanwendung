@@ -1,0 +1,116 @@
+<form [formGroup]="form" novalidate >
+  <ul class="collapsible popout" data-collapsible="accordion" materialize="collapsible">
+    <li class="active">
+      <div class="collapsible-header active"><i class="material-icons">person_pin</i>Persönliche Informationen</div>
+      <div class="collapsible-body" style="display: block;">
+        <div class="container">
+          <br>
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">account_circle</i>
+              <input class="validate" formControlName="firstName" id="firstName" type="text">
+              <label for="firstName">Vorname</label>
+            </div>
+            <div class="input-field col s6">
+              <input class="validate" formControlName="lastName" id="lastName" type="text">
+              <label for="lastName">Nachname</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">phone</i>
+              <input class="validate" id="phoneNumber" type="text" formControlName="phoneNumber">
+              <label for="phoneNumber">Telefonnummer</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">location_on</i>
+              <input class="validate" id="adressStreet" type="text" formControlName="adressStreet">
+              <label for="adressStreet">Straße und Hausnummer</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix"></i>
+              <input class="validate" id="adressPostcode" type="text" formControlName="adressPostcode">
+              <label for="adressPostcode">PLZ</label>
+            </div>
+            <div class="input-field col s6">
+              <input class="validate" id="adressCity" type="text" formControlName="adressCity">
+              <label for="adressCity">Stadt</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="">
+      <div class="collapsible-header"><i class="material-icons">event</i>Datum</div>
+      <div class="collapsible-body" style="display: none;">
+        <div class="container">
+          <div class="row">
+            <div class="input-field col s12">
+              <label for="date">Datum</label>
+              <input id="date" materialize="pickadate" [materializeParams]="[pickerValues]" type="text" formControlName="date"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="">
+      <div class="collapsible-header"><i class="material-icons">add_a_photo</i>Bilder</div>
+      <div class="collapsible-body" style="display: none;">
+        <div class="container">
+          <div class="row">
+            <div class="input-field col s12">
+              <select formControlName="additionalPictures" materialize="material_select">
+                <!--
+                <select [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [ngModelOptions]="{standalone: true}" [materializeSelectOptions]="selectOptions" [attr.disabled]="isDisabled?true:null">
+                  -->
+                <option value="0" selected>Wünschen Sie zusätzliche Bilder?</option>
+                <option value="10">Ich möchte 10 zusätzliche Bilder (+50€)</option>
+                <option value="20">Ich möchte 20 zusätzliche Bilder (+75€)</option>
+                <option value="50">Ich möchte 10 zusätzliche Bilder (+100€)</option>
+                <!--
+                <option value="" selected>Wünschen Sie zusätzliche Bilder?</option>
+                <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
+                -->
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <p>
+                <input type="checkbox" id="print" name="print" value="false" formControlName="printedPictures"/>
+                <label for="print">Ich möchte meine Bilder zusätlich ausgedruckt haben. (+25€)</label>
+              </p>
+              <p>
+                <input type="checkbox" id="book" name="book" value="false" formControlName="printedBook" />
+                <label for="book">Ich ein Fotobuch mit meinen Bildern. (+50€)</label>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="">
+      <div class="collapsible-header"><i class="material-icons">playlist_add_check</i>Zusatzleistungen</div>
+      <div class="collapsible-body" style="display: none;">
+        <div class="container">
+          <div class="row">
+            <div class="input-field col s12">
+              <p>
+                <input type="checkbox" id="makeup" name="makeup"  value="false" formControlName="makeUpWanted"/>
+                <label for="makeup">Ich möchte vor dem Shooting geschminkt werden. (+50€)</label>
+              </p>
+              <p>
+                <input type="checkbox" id="location" name="location"  value="false" formControlName="offLocation"/>
+                <label for="location">Ich möchte die Bilder bei mir zuhause machen (max. 50km Anfahrt) (+100€)</label>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</form>

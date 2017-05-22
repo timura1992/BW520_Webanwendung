@@ -1,0 +1,36 @@
+<div class="navbar-fixed  blue-grey">
+  <nav>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo"><i class="material-icons">camera_enhance</i>T&M Fotografie</a>
+        <a href="" data-activates="mobile-demo, mobile-demo1" class="button-collapse" materialize="sideNav"
+           [materializeParams]="[{menuWidth: 300,edge: 'left', closeOnClick: true, draggable: true}]"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li routerLinkActive="active"><a routerLink="home">Home</a></li>
+          <li routerLinkActive="active"><a routerLink="portfolio">Portfolio</a></li>
+          <li routerLinkActive="active"><a routerLink="booking">Buchen</a></li>
+          <li routerLinkActive="active"><a routerLink="login"
+                                           *ngIf="!authInfo?.isLoggedIn()">Login</a></li>
+          <li routerLinkActive="active"><a routerLink="register"
+                                           *ngIf="!authInfo?.isLoggedIn()">Registrieren</a></li>
+          <li routerLinkActive="active"><a routerLink="members"
+                                           *ngIf="authInfo?.isLoggedIn()">Members</a></li>
+          <li><a *ngIf="authInfo?.isLoggedIn()" (click)="logout()">Logout</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li routerLinkActive="active"><a routerLink="home">Home</a></li>
+          <li routerLinkActive="active"><a routerLink="portfolio">Portfolio</a></li>
+          <li routerLinkActive="active"><a routerLink="booking">Buchen</a></li>
+          <li routerLinkActive="active"><a routerLink="login"
+                                           *ngIf="!authInfo?.isLoggedIn()">Login</a></li>
+          <li routerLinkActive="active"><a routerLink="register"
+                                           *ngIf="!authInfo?.isLoggedIn()">Registrieren</a></li>
+          <li routerLinkActive="active"><a routerLink="members"
+                                           *ngIf="authInfo?.isLoggedIn()">Members</a></li>
+          <li><a *ngIf="authInfo?.isLoggedIn()" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+

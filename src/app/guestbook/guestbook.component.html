@@ -1,0 +1,55 @@
+<div class="parallax-container">
+  <div class="parallax" materialize="parallax" ng-reflect-materialize="parallax">
+    <img src="../../assets/headers/guestbook.png" style="display: block; transform: translate3d(-50%, 548px, 0px);">
+  </div>
+</div>
+<div class="container">
+  <form class="col s12 login-form" [formGroup]="form" >
+    <div class="input-field col s6">
+      <input type="text" id="name" formControlName="guestName">
+      <label for="name">Name</label>
+    </div>
+    <div class="input-field col s6">
+      <input id="message" type="text" formControlName="msgVal">
+      <label for="message">Nachricht</label>
+    </div>
+    <div class="row" align="right">
+      <button class="btn waves-effect waves-light" type="submit" name="action"
+              [disabled]="!form.valid" (click)="chatSend()">Nachricht senden
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+
+  <div class="row" *ngFor="let item of items | async">
+    <div class="col s12">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"></span>
+          <p>{{item.message}}</p>
+        </div>
+        <div class="card-action">
+          <a>{{item.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+</div>
+
+
+<div class="row columns">
+  <input type="text" id="name" [(ngModel)]="guestName">
+  <input type="text" id="message" placeholder="Chat here..." (keyup.enter)="chatSend($event.target.value)" [(ngModel)]="msgVal" />
+
+
+  <div class="chat-container" *ngFor="let item of items | async">
+    <a>{{item.name}}</a>
+
+    <p>{{item.message}}</p>
+  </div>
+</div>
+-->

@@ -1,0 +1,44 @@
+<div class="parallax-container">
+  <div class="parallax" materialize="parallax" ng-reflect-materialize="parallax">
+    <img src="../../assets/headers/members.png" style="display: block; transform: translate3d(-50%, 548px, 0px);">
+  </div>
+</div>
+<div class="container">
+  <div class="row" *ngIf='!(hasPictures | async)'>
+    <div class="row">
+      <div class="col s12"><br/>
+        <h4>Members</h4>
+        <br/><div class="divider"></div><br/>
+        <h5>Sie haben noch keinen Termin gebucht.</h5>
+        <a routerLink="/booking">Hier geht es zur Terminbuchung.</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf='(hasPictures | async)'>
+    <div class="row">
+      <div class="col s12"><br/>
+        <h4>Members</h4>
+        <br/><div class="divider"></div><br/>
+        <h5>Hallo !</h5>
+        <h6>Hier findest du deine bisherigen Buchungen</h6>
+      </div>
+    </div>
+    <div class="col s6" *ngFor="let booking of (bookings$ | async)">
+      <div class="card">
+        <div class="card-image">
+          <img src="../../assets/portfolio/{{booking.bookingUrl}}.jpg">
+        </div>
+        <div class="card-content">
+          <p>
+            Hey {{booking.firstName}} du hast am {{booking.date}} ein {{booking.bookingUrl}} gebucht.
+          </p>
+        </div>
+        <div class="card-action">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
